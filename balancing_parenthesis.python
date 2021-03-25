@@ -1,0 +1,21 @@
+s = input()
+a = []
+c = 0
+count = 0
+for i in s:
+    if(i=='('):
+        a.insert(c,'(')
+        #print(a)
+        c = c+1
+    elif(i==')'):
+        if(len(a)>0 and a[-1]=='('):
+            a.pop()
+           # print(a)
+            count +=1
+        else:
+            break
+if(count==len(s)//2):
+    print("True")
+else:
+    #print(count)
+    print("False")
