@@ -1,0 +1,27 @@
+class Calc:
+    def __init__(self,a,b):
+        self.a = a
+        self.b = b
+    def add(self):
+        return self.a+self.b
+    def sub(self):
+        return self.a-self.b
+    def mul(self):
+        return self.a*self.b
+    def div(self):
+        return self.a/self.b
+    def exit(self):
+        return
+ip = list(map(int,input().split(' ')))
+c = Calc(ip[0],ip[1])
+for i in range(2,len(ip)):
+    if(ip[i]==1):
+        print(c.add(),end=" ")
+    elif(ip[i]==2):
+        print(c.sub(),end=" ")
+    elif(ip[i]==3):
+        print(c.mul(),end=" ")
+    elif(ip[i]==4):
+        print(c.div(),end=" ")
+    elif(ip[i]==0):
+        c.exit()
