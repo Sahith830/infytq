@@ -1,0 +1,12 @@
+s = eval(input())
+c = 0
+hasN = False
+for i in s:
+    if(i==9):
+        hasN = True
+        print("True")
+    c = c + 1
+    if(c>=4):
+        break
+if(not hasN):
+    print("False")
