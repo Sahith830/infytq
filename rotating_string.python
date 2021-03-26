@@ -1,0 +1,19 @@
+s = input()
+name = ""
+sum = 0
+hasColon = False
+for i in s:
+    if(i == ":"):
+        hasColon = True
+        continue
+    if(not hasColon):
+        name += i
+    else:
+        sum = sum + int(i)*int(i)
+#print(sum,name)
+if(sum%2==0):
+    name = name[-1:-2:-1]+name[0:-1]
+    print(name)
+else:
+    name = name[2:] + name[0:2]
+    print(name)
