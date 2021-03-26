@@ -1,0 +1,63 @@
+class NormalRoom:
+    def __init__(self,rooms,days):
+        self.rooms = rooms
+        self.days = days
+        if(days == 1):
+            self.rent = 300
+        elif(days>1 and days<=5):
+            self.rent = 250
+        elif(days>5):
+            self.rent = 200
+    def calc(self):
+        self.cost = self.rooms*self.days*self.rent
+        print(self.cost)
+        
+class ACRoom:
+    def __init__(self,room,days):
+        self.rooms = room
+        self.days = days
+        if(self.days == 1):
+            self.rent = 450
+        elif(self.days>1 and self.days<=5):
+            self.rent = 300
+        elif(self.days>5):
+            self.rent = 250
+    def calc(self):
+        self.cost = self.rooms*self.days*self.rent
+        print(self.cost)
+        
+class SuiteRoom:
+    def __init__(self,room,days):
+        self.rooms = room
+        self.days = days
+        if(self.days == 1):
+            self.rent = 550
+        elif(self.days>1 and self.days<=5):
+            self.rent = 500
+        elif(self.days>5):
+            self.rent = 450
+    def calc(self):
+        self.cost = self.rooms*self.days*self.rent
+        print(self.cost)
+        
+class Hotel(NormalRoom,SuiteRoom,ACRoom):
+    def __init__(self,name,address,mobile,r,d,o):
+        if(o==1):
+            NormalRoom.__init__(self,r,d)
+        elif(o==2):
+            ACRoom.__init__(self,r,d)
+        elif(o==3):
+            SuiteRoom.__init__(self,r,d)
+        self.name = name
+        self.address = address
+        self.mobile = mobile
+    def display(self):
+        print("Name : ",self.name)
+        print("Address  : ",self.address)
+        print("Mobile : ",self.mobile)
+        print("Total Rent : ",end=" ")
+        self.calc()
+n,a = map(str,input().split(' '))
+m , r , d,o = map(int,input().split(' '))
+h = Hotel(n,a,m,r,d,o)
+h.display()
