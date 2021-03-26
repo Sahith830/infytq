@@ -1,0 +1,28 @@
+class Person:
+    def __init__(self,name):
+        self.name = name
+    def display(self):
+        print("Name of the Employee : ",self.name)
+class Staff(Person):
+    def __init__(self,name,id):
+        super().__init__(name)
+        self.id = id
+    def display(self):
+        print("Employee id : ",self.id)
+class TemporaryStaff(Staff):
+    def __init__(self,name,id,days,hours):
+        super().__init__(name,id)
+        self.days = days
+        self.hours = hours
+    def display(self):
+        Person.display(self)
+        Staff.display(self)
+        print("Number of days worked : ",self.days)
+        print("Number of hours per day : ",self.hours)
+    def salary(self):
+        print("Salary of the Employee is : ",(self.days*self.hours*150))
+n = input()
+id , d , h = map(int,input().split(' '))
+ts = TemporaryStaff(n,id,d,h)
+ts.display()
+ts.salary()
