@@ -1,0 +1,12 @@
+s = eval(input())
+bal = 0
+for i in s:
+    if(i[0]=="D"):
+        bal+= int(i[2:])
+    elif(i[0]=="W"):
+        withdraw=int(i[2:])
+        if(withdraw>bal):
+            print("Insufficient Balance")
+        else:
+            bal-=withdraw
+print("Remaining Bal : ",bal)
