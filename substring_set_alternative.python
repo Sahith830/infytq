@@ -1,0 +1,13 @@
+from itertools import permutations,combinations
+m = list(input().split(','))
+n = []
+for i in range(len(m)):
+    n.append("".join(list(set(m[i]))))
+for i in range(len(n)):
+    for j in range(len(n)):
+        t = set(combinations(n[i],len(n[j])))
+        t1 = []
+        for k in t:
+            t1.append(set(k))
+        if(i!=j and set(n[j]) in t1):
+            print(m[j],m[i])
