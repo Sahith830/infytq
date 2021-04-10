@@ -1,0 +1,13 @@
+a = []
+for i in range(6):
+    t = list(map(int,input().split(' ')))
+    a.append(t)
+t = []
+t1 = []
+for i in range(4):
+    for j in range(4):
+        sum = a[i][j]+a[i][j+1]+a[i][j+2]+a[i+1][j+1]+a[i+2][j]+a[i+2][j+1]+a[i+2][j+2]
+        t.append(sum)
+        t1.append(list([a[i][j],a[i][j+1],a[i][j+2],a[i+1][j+1],a[i+2][j],a[i+2][j+1],a[i+2][j+2]]))
+#print(max(t),t1)
+print(max(t),t1[t.index(max(t))])
