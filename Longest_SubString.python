@@ -1,0 +1,16 @@
+n = input()
+k = 3
+t1 = []
+ml = 3
+for j in range(k,len(n)):
+    for i in range(len(n)):
+        t = n[i:k+i]
+        if(len(t)>=3 and len(set(t))==k):
+            t1.append(t)
+            #print(t)
+            if(len(t)>ml):
+                ml = len(t)
+    k+=1
+for i in t1:
+    if(len(i)==ml):
+        print(i)
