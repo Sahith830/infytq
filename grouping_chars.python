@@ -1,0 +1,14 @@
+n= input()
+d = {}
+for i in range(97,123):
+    d[chr(i)]=""
+for i in n:
+    d[i.lower()] = d[i.lower()]+i
+t= []
+for k,v in d.items():
+    if(v!=''):
+        t.append(v)
+print(t)
+for i in range(0,len(t)//2):
+    print(t[i],t[-i-1],sep=' ',end=' ')
+print(t[(len(t)//2)])
