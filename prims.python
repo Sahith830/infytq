@@ -1,0 +1,28 @@
+from collections import defaultdict
+class Graph:
+    def __init__(self):
+        self.graph = []
+    def addEdge(self,a,b,w):
+        self.graph.append((a,b,w))
+    def minVis(self,e):
+        min = 100000
+        minindex = 0
+        for i in range(len(e)):
+            if(e[i]<min and self.t[i]==False and e[i]!=0):
+                min = e[i]
+                minindex = i
+        return (min,minindex)
+    def prims(self):
+        d = defaultdict(list)
+        wg1 = [[0,5,2,0,0],[5,0,2,4,0],[2,2,0,0,5],[0,4,0,0,0],[0,0,5,0,0]]
+        wg2 = [[0,2,0,6,0],[2,0,3,8,5],[0,3,0,0,7],[6,8,0,0,9],[0,5,7,9,0]]
+        #wg = [[0,2,1,0,0],[2,0,1,6,4],[1,1,0,3,1],[0,2,1,0,0]]
+        c = [0]
+        for i in range(1,len(wg)):
+            for j in range(len(wg[i])):
+                if(wg[i][j] not in d[i] and wg[i][j]!=0):
+                    d[i].append(wg[i][j])
+            c.append(min(d[i]))
+        print(d,c)
+g = Graph()
+g.prims()
